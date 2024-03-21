@@ -14,9 +14,9 @@ export const fetchRecipe = (dispatch: AppDispatch, useLocation: LocationState) =
   dispatch?.(fetching());
   const path = useLocation?.pathname?.split('/')?.[2];
   const url = `/recipes/detail/${path}`
-  axios({ ...headers, url: url }).then((response) => {
+  axios.get(url, { ...headers, url: url }).then((response) => {
     dispatch?.(fetched(response?.data));
-  }).catch(function(error) {
+  }).catch((error) => {
     dispatch?.(fetched({
       details: error,
     })) 
