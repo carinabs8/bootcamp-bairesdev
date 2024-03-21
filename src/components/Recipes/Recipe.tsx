@@ -12,7 +12,7 @@ const RecipeWrapper = styled.section`
   }
 `;
 
-export const Recipe = ( props ) => {
+export const Recipe = () => {
   const dispatch = useDispatch<AppDispatch>();
   const isCalledRef = React.useRef(false);
   const { status, data } = useSelector(recipeSelector, shallowEqual);

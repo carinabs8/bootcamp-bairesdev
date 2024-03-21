@@ -2,7 +2,6 @@ import React, { useEffect, useCallback } from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux'
 import { AppDispatch } from '@/redux/store';
 import { recipeSelector } from '@/redux/selectors';
-import { fetchRecipe } from './utils';
 import styled from 'styled-components';
 
 const RecipeDetailWrapper = styled.section`
@@ -13,7 +12,7 @@ const IngredientsListWrapper = styled.ul`
   padding: 4px;
 `;
 
-export const Ingredients = ( props ) => {
+export const Ingredients = () => {
   const dispatch = useDispatch<AppDispatch>();
   const isCalledRef = React.useRef(false);
   const { status, data } = useSelector(recipeSelector, shallowEqual);
@@ -24,7 +23,7 @@ export const Ingredients = ( props ) => {
   return (
     <React.Fragment>
       <IngredientsListWrapper className={'summary'}>
-        {recipeData?.ingredients?.map((ingredient, index) => {
+        {recipeData?.ingredients?.map((ingredient: string, index: number) => {
           return(<li className={'summary'} key={`ingredient_${index}`}>{ingredient}</li>)
         })}
       </IngredientsListWrapper>

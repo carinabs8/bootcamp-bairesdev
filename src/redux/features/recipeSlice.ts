@@ -1,22 +1,12 @@
 "use client";
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-type RecipeData = {
-  name: string;
-  details: string;
-  ingredients: [];
-}
-
-interface InitialState {
-  status: string;
-  data?: RecipeData;
-}
+import { RecipeData, RecipeInitialState } from '@/redux/types';
 
 const initialState = {
   status: 'initial',
   data: {},
-} as InitialState;
+} as RecipeInitialState;
 
 
 export const recipe = createSlice({

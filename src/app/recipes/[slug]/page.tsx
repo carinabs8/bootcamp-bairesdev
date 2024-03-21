@@ -5,8 +5,15 @@ import ReactDOM from 'react-dom/client'
 
 import StoreProvider from '../../../redux/StoreProvider';
 import Recipe from '../../../components/Recipes';
+import { usePathname } from 'next/navigation'
 
-export default function RecipeDetail(props){
+interface RecipeDetail {
+  params: {
+    slug: string;
+  }
+};
+
+export default function RecipeDetail(props: RecipeDetail){
   const { params } = props;
   const { slug } = params
   return (
