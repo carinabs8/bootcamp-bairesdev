@@ -1,12 +1,14 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import recipeReducer from './features/recipeSlice';
 
-export const store = configureStore({
-  reducer: { 
-    recipeReducer
-  },
+const rootReducer = combineReducers({
+  recipeReducer,
 });
 
-export type AppStore = ReturnType<typeof store.getState>;
+export const store = configureStore({
+  reducer: rootReducer,
+});
+
+export type AppStore = ReturnType<typeof rootReducer>;
 // Infer the `AppDispatch` type from the store itself
 export type AppDispatch = typeof store.dispatch;
