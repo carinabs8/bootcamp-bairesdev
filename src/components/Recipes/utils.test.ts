@@ -1,5 +1,5 @@
 import { fetchRecipe } from './utils';
-import { fetching, fetched } from '@/redux/features/recipeSlice';
+import { fetch } from '@/redux/features/recipeSlice';
 import { AppDispatch } from '@/redux/store';
 import axios from "axios";
 
@@ -11,12 +11,12 @@ describe('fetchRecipe', () => {
   const errorMock = jest.fn(() => new Error('Error data'))
 
   describe('when server returns an 200 ok', () => {
-    const mockFetching = jest.fn((state, action) => state ) as AppDispatch;
+    const mockFetch = jest.fn((state, action) => state ) as AppDispatch;
     const recipeSlice = jest.mock('../../redux/features/recipeSlice', () => {
       return {
         __esModule: true,
         default: jest.fn(),
-        fetching: mockFetching,
+        fetch: mockFetch,
       };
     });
 
@@ -36,12 +36,12 @@ describe('fetchRecipe', () => {
   })
 
   describe('when server returns an error catch', () => {
-    const mockFetching = jest.fn((state, action) => state ) as AppDispatch;
+    const mockFetch = jest.fn((state, action) => state ) as AppDispatch;
     const recipeSlice = jest.mock('../../redux/features/recipeSlice', () => {
       return {
         __esModule: true,
         default: jest.fn(),
-        fetching: mockFetching,
+        fetch: mockFetch,
       };
     });
 

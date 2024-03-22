@@ -5,7 +5,7 @@ export type RecipeData = {
 };
 
 export interface RecipeInitialState {
-  status?: string | 'initial';
+  type?: string | 'initial';
   data?: RecipeData;
 }
 

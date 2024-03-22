@@ -15,7 +15,7 @@ const IngredientsListWrapper = styled.ul`
 export const Ingredients = () => {
   const dispatch = useDispatch<AppDispatch>();
   const isCalledRef = React.useRef(false);
-  const { status, data } = useSelector(recipeSelector, shallowEqual);
+  const { type, data } = useSelector(recipeSelector, shallowEqual);
   const recipeData = data || {};
 
   if(!Object?.entries(recipeData)?.length) return null;

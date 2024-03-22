@@ -4,7 +4,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RecipeInitialState } from '@/redux/types';
 
 const initialState = {
-  status: 'initial',
+  type: 'IDLE',
   data: {},
 } as RecipeInitialState;
 
@@ -13,13 +13,11 @@ export const recipe = createSlice({
   name: 'recipe',
   initialState,
   reducers: {
-    fetching: () => ({status: 'fetching'}),
-    fetched: (state, action) => ({
-      ...action?.payload,
-      status: 'fetched'
-    })
+    fetch: (state, action) => ({
+      ...state, ...action.payload,
+    }),
   },
 });
 
-export const { fetching,  fetched } = recipe.actions;
+export const { fetch } = recipe.actions;
 export default recipe.reducer;

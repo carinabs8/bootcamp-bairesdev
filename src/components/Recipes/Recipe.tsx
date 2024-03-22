@@ -15,7 +15,7 @@ const RecipeWrapper = styled.section`
 export const Recipe = () => {
   const dispatch = useDispatch<AppDispatch>();
   const isCalledRef = React.useRef(false);
-  const { status, data } = useSelector(recipeSelector, shallowEqual);
+  const { type, data } = useSelector(recipeSelector, shallowEqual);
 
   const getRecipe = useCallback(() => {
     isCalledRef.current = true;
@@ -30,7 +30,7 @@ export const Recipe = () => {
 
   return (
     <RecipeWrapper>
-      <h1 className={`mb-3 text-2xl font-semibold`}>{data?.name} - {status}</h1>
+      <h1 className={`mb-3 text-2xl font-semibold`}>{data?.name} - {type}</h1>
       <Ingredients/>
     </RecipeWrapper>
   )
