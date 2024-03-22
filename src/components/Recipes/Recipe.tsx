@@ -5,6 +5,8 @@ import { recipeSelector } from '@/redux/selectors';
 import { fetchRecipe } from './utils';
 import Ingredients from './Ingredients';
 import styled from 'styled-components';
+import { getData } from '@/redux/features/recipeSlice';
+import { RecipeInitialState } from '@/redux/types';
 
 const RecipeWrapper = styled.section`
   li {
@@ -19,7 +21,11 @@ export const Recipe = () => {
 
   const getRecipe = useCallback(() => {
     isCalledRef.current = true;
-    fetchRecipe(dispatch, location);
+    const updateState = (dataState: RecipeInitialState) => {
+      dispatch?.(getData(dataState));
+    };
+
+    fetchRecipe(updateState, location);
   }, []);
 
   useEffect(() => {

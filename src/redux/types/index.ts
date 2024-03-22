@@ -7,6 +7,7 @@ export type RecipeData = {
 export interface RecipeInitialState {
   type?: string | 'initial';
   data?: RecipeData;
+  error?: {}
 }
 
 export type RecipeSelector = {
