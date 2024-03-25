@@ -13,11 +13,11 @@ export const recipe = createSlice({
   name: 'recipe',
   initialState,
   reducers: {
-    getData: (state, action) => ({
+    recipeData: (state, action) => ({
       ...state, ...action.payload,
     }),
   },
 });
 
-export const { getData } = recipe.actions;
+export const { recipeData } = recipe.actions;
 export default recipe.reducer;
