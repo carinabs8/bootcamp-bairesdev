@@ -9,6 +9,6 @@ export const store = configureStore({
   reducer: rootReducer,
 });
 
-export type AppStore = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof configureStore>;
 // Infer the `AppDispatch` type from the store itself
 export type AppDispatch = typeof store.dispatch;

@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const ProviderStorage = ({ children }: Props) => {
-  const storeRef = useRef<any | AppStore>(null);
+  const storeRef = useRef<null | AppStore>(null);
 
   if (!storeRef.current) {
     storeRef.current = store;
