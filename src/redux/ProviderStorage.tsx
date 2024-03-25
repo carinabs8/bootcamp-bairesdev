@@ -10,8 +10,8 @@ interface Props {
   readonly children: ReactNode;
 }
 
-export const StoreProvider = ({ children }: Props) => {
-  const storeRef = useRef<any>(null);
+export const ProviderStorage = ({ children }: Props) => {
+  const storeRef = useRef<any | AppStore>(null);
 
   if (!storeRef.current) {
     storeRef.current = store;
@@ -27,4 +27,4 @@ export const StoreProvider = ({ children }: Props) => {
   return <Provider store={storeRef.current}>{children}</Provider>;
 };
 
-export default StoreProvider;
+export default ProviderStorage;
