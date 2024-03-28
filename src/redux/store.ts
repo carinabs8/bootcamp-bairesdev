@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import recipeReducer from './features/recipeSlice';
 
 const rootReducer = combineReducers({

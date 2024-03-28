@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import { useSelector, shallowEqual, useDispatch } from 'react-redux'
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import { recipeSelector } from '@/redux/selectors';
 import styled from 'styled-components';
@@ -24,15 +24,15 @@ export const Ingredients = () => {
     <React.Fragment>
       <IngredientsListWrapper className={'summary'}>
         {recipeData?.ingredients?.map((ingredient: string, index: number) => {
-          return(<li className={'summary'} key={`ingredient_${index}`}>{ingredient}</li>)
+          return(<li className={'summary'} key={`ingredient_${index}`}>{ingredient}</li>);
         })}
       </IngredientsListWrapper>
-      <h1 className={`mb-3 text-2xl font-semibold`}>Description</h1>
+      <h1 className={'mb-3 text-2xl font-semibold'}>Description</h1>
       <RecipeDetailWrapper className={'prose prose-slate max-w-none prose-a:font-semibold prose-a:text-indigo-600 hover:prose-a:text-indigo-500'}>
         {recipeData?.details}
       </RecipeDetailWrapper>
     </React.Fragment>
-  )
-}
+  );
+};
 
 export default Ingredients;

@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import { useSelector, shallowEqual, useDispatch } from 'react-redux'
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { AppDispatch } from '@/redux/store';
 import { recipeSelector } from '@/redux/selectors';
 import { fetchRecipe } from './utils';
@@ -36,10 +36,10 @@ export const Recipe = () => {
 
   return (
     <RecipeWrapper>
-      <h1 className={`mb-3 text-2xl font-semibold`}>{data?.name} - {type}</h1>
+      <h1 className={'mb-3 text-2xl font-semibold'}>{data?.name} - {type}</h1>
       <Ingredients/>
     </RecipeWrapper>
-  )
-}
+  );
+};
 
 export default Recipe;
