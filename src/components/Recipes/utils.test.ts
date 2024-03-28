@@ -23,13 +23,13 @@ describe('fetchRecipe', () => {
 
       await act (() => { fetchRecipe(updateState, 'url'); });
       expect(updateState).toHaveBeenCalledWith({type: 'FETCHING'});
-      expect(updateState).toHaveBeenCalledWith({
-        type: 'FETCHED', data: expect.objectContaining({
-          name: 'apple pie',
-          details: 'apple pie details',
-          ingredients: ['apple', 'milk']
-        })
-      });
+      expect(updateState).toHaveBeenCalledWith(expect.objectContaining({
+        type: 'FETCHED',
+        name: 'apple pie',
+        details: 'apple pie details',
+        ingredients: ['apple', 'milk'],
+      }));
+
       expect(updateState).not.toHaveBeenCalledWith(
         expect.objectContaining({type: 'API-ERROR'})
       );

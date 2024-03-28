@@ -13,7 +13,7 @@ export const fetchRecipe = (updateState: Function, useLocation: LocationState) =
   const url = `/recipes/detail/${path}`;
   axios.get(url, { ...headers, url: url }).then((response) => {
     const { data } = response;
-    updateState({ type: 'FETCHED', data: data });
+    updateState({ type: 'FETCHED', ...data });
   }).catch((error) => {
     updateState({ type: 'API-ERROR', error: error });
   });

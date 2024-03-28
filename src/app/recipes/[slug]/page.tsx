@@ -1,11 +1,8 @@
 'use client';
-import Image from 'next/image';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React  from 'react';
 
 import ProviderStorage from '../../../redux/ProviderStorage';
 import Recipe from '../../../components/Recipes';
-import { usePathname } from 'next/navigation';
 
 interface RecipeDetail {
   params: {
@@ -19,7 +16,7 @@ export default function RecipeDetail(props: RecipeDetail){
   return (
     <ProviderStorage>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        {/*{slug}*/}
+        {slug}
         <Recipe/>
       </main>
     </ProviderStorage>
