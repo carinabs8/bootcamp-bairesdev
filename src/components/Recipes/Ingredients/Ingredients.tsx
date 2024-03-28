@@ -1,6 +1,5 @@
-import React, { useEffect, useCallback } from 'react';
-import { useSelector, shallowEqual, useDispatch } from 'react-redux';
-import { AppDispatch } from '@/redux/store';
+import React from 'react';
+import { useSelector, shallowEqual } from 'react-redux';
 import { recipeSelector } from '@/redux/selectors';
 import styled from 'styled-components';
 
@@ -13,9 +12,7 @@ const IngredientsListWrapper = styled.ul`
 `;
 
 export const Ingredients = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const isCalledRef = React.useRef(false);
-  const { type, data } = useSelector(recipeSelector, shallowEqual);
+  const { data } = useSelector(recipeSelector, shallowEqual);
   const recipeData = data || {};
 
   if(!Object?.entries(recipeData)?.length) return null;

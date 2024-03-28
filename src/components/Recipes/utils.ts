@@ -7,7 +7,13 @@ const headers = {
   headers: {Accept: 'application/json', method: 'GET' },
 };
 
-export const fetchRecipe = (updateState: Function, useLocation: LocationState) => {
+type FetchRecipeParams = {
+  updateState: () => void;
+  useLocation: LocationState;
+}
+
+export const fetchRecipe = (params: FetchRecipeParams) => {
+  const { updateState, useLocation } = params;
   updateState({type: 'FETCHING'});
   const path = useLocation?.pathname?.split('/')?.[2];
   const url = `/recipes/detail/${path}`;

@@ -1,5 +1,5 @@
-import { render, screen, act } from '@testing-library/react';
-import { store } from '@/redux/store';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 import Ingredients from './Ingredients';
 
 import * as reactRedux from 'react-redux';

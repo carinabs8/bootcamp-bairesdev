@@ -1,3 +1,3 @@
-import { RecipeSelector, RecipeInitialState } from '@/redux/types';
+import { RecipeSelector } from '@/redux/types';
 
 export const recipeSelector = (state: RecipeSelector) => (state?.recipeReducer);

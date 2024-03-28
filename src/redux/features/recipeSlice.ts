@@ -1,6 +1,6 @@
 'use client';
 
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { RecipeInitialState } from '@/redux/types';
 
 const initialState = {

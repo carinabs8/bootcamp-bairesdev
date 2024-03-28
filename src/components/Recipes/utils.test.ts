@@ -1,7 +1,4 @@
 import { fetchRecipe } from './utils';
-import { fetch } from '@/redux/features/recipeSlice';
-import { AppDispatch } from '@/redux/store';
-import { RecipeData } from '@/redux/types';
 import axios from 'axios';
 
 import { act } from '@testing-library/react';
@@ -21,7 +18,7 @@ describe('fetchRecipe', () => {
     it('calls the right promise', async() => {
       axios.get = jest.fn().mockResolvedValue(sucessMockData);
 
-      await act (() => { fetchRecipe(updateState, 'url'); });
+      await act (() => { fetchRecipe({updateState, url}); });
       expect(updateState).toHaveBeenCalledWith({type: 'FETCHING'});
       expect(updateState).toHaveBeenCalledWith(expect.objectContaining({
         type: 'FETCHED',
@@ -40,7 +37,7 @@ describe('fetchRecipe', () => {
     it('calls the right promise', async () => {
       axios.get = jest.fn().mockRejectedValue(errorMockData);
 
-      await act(() => { fetchRecipe(updateState, 'url'); });
+      await act(() => { fetchRecipe({updateState, url}); });
       expect(updateState).toHaveBeenCalledWith({type: 'FETCHING'});
       expect(updateState).not.toHaveBeenCalledWith(
         expect.objectContaining({type: 'FETCHED'})

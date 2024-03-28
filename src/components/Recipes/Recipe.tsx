@@ -25,7 +25,7 @@ export const Recipe = () => {
       dispatch?.(recipeData(dataState));
     };
 
-    fetchRecipe(updateState, location);
+    fetchRecipe({updateState, location});
   }, []);
 
   useEffect(() => {
